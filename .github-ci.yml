@@ -1,0 +1,32 @@
+stages:
+  - build
+  - test
+  - deploy
+
+# Build the Docker image
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  script:
+    - echo "Building the Docker image..."
+    - docker build -t myapp:latest .
+
+# Run tests
+test:
+  stage: test
+  image: python:3.9
+  script:
+    - echo "Running tests..."
+    - pip install -r requirements.txt
+    - python -m unittest discover tests/
+
+# Deploy the application
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying the application..."
+    - docker run -d myapp:latest
+  only:
+    - main  # Only deploy from the main branch
