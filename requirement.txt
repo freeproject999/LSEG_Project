@@ -1,0 +1,16 @@
+
+#### 2. **requirements.txt**
+
+```plaintext
+# Required packages for the log monitoring application
+# If you are using any external libraries, list them here
+# For example, if you are using pandas for data manipulation:
+# pandas==1.3.3
+
+# If you are using any logging libraries, specify them here
+# For example, if you are using loguru for enhanced logging:
+# loguru==0.5.3
+
+# If you are using any testing libraries, specify them here
+# For example, if you are using pytest for testing:
+pytest==6.2.4
